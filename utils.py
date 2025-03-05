@@ -19,6 +19,16 @@ def readDM(dm_file):
         dm_dict[row]=vec
     return dm_dict
 
+import matplotlib.pyplot as plt
+
+def make_figure(m_2d, labels):
+    fig, ax = plt.subplots()
+    ax.scatter(m_2d[:, 0], m_2d[:, 1])
+    for i, label in enumerate(labels):
+        ax.annotate(label, (m_2d[i, 0], m_2d[i, 1]))
+    return fig
+
+
 def cosine_similarity(v1, v2):
     if len(v1) != len(v2):
         return 0.0
